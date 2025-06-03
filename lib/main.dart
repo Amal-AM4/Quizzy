@@ -32,6 +32,11 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  List<Widget> ScoreKeeper = [
+    Icon(Icons.done, color: Colors.green),
+    Icon(Icons.clear, color: Colors.red),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -77,12 +82,7 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
-        Row(
-          children: [
-            Icon(Icons.done, color: Colors.green),
-            Icon(Icons.clear, color: Colors.red),
-          ],
-        ),
+        Row(children: ScoreKeeper),
       ],
     );
   }
