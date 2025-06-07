@@ -1,16 +1,62 @@
-# quizzy
+# 📱 Quizzy
 
-A new Flutter project.
+Quizzy is a simple and interactive Flutter application that presents a 10-question quiz about computer knowledge. Users can answer **True** or **False** to each question and get immediate feedback.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- ✅ True/False quiz format with 10 computer-related questions
+- 🔁 Immediate feedback after each question
+- 🧠 Clean and modular code using **OOP principles** (classes, objects, abstraction)
+- 📦 Uses `List<Widget>` for dynamic UI rendering
+- 🎯 Built using modern Flutter development practices
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Technologies Used
+
+- 🐦 **Flutter** (UI framework)
+- 🎯 **Dart** (Programming Language)
+- 🧱 **Object-Oriented Programming** (Classes, Objects, Inheritance, Abstraction)
+
+---
+
+## 🧠 Questions Example
+
+All questions are about **basic computer knowledge**, such as:
+
+- "The CPU is the brain of the computer." → ✅ True  
+- "RAM stands for Random Access Monitor." → ❌ False
+
+---
+
+## 📚 Code Concepts Used
+
+- **Class & Object**: Each quiz question is modeled using a `Question` class.
+- **Abstract Class**: Used to define a template for question behavior.
+- **OOP Principles**: Code is structured into reusable components.
+- **List<Widget>**: Used to dynamically render answers and feedback in the UI.
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home / Start Screen
+![Start Screen](./screenshots/start_screen.png)
+
+### ❓ Question Interface
+![Question Screen](./screenshots/question_screen.png)
+
+### ✅ Result Feedback
+![Result Feedback](./screenshots/result_screen.png)
+
+---
+
+## 🚀 Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/Amal-AM4/Quizzy.git
+cd quizzy

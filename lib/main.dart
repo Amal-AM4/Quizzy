@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -37,6 +39,34 @@ class _QuizPageState extends State<QuizPage> {
     // Icon(Icons.clear, color: Colors.red),
   ];
 
+  List<String> questions = [
+    'The `<script>` tag can only be placed in the `<head>` section of an HTML document.',
+    'JavaScript can be used to change the content of an HTML element.',
+    'JavaScript can be used to change the CSS styles of an HTML element.',
+    'To use an external JavaScript file, you use the `<link>` tag.',
+    'The `onclick` attribute in HTML is an example of an event handler.',
+    'JavaScript is case-sensitive.',
+    'Semicolons are always required at the end of every JavaScript statement.',
+    'HTML5 introduced new APIs that can be accessed with JavaScript, like `localStorage`.',
+    '`document.write()` is the recommended way to add content to a webpage after it has loaded.',
+    '`innerHTML` and `innerText` are interchangeable and always produce the same output.',
+  ];
+
+  List<bool> answers = [
+    false,
+    true,
+    true,
+    false,
+    true,
+    true,
+    false,
+    true,
+    false,
+    false,
+  ];
+
+  int questionNumber = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -49,7 +79,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(15.0),
             child: Center(
               child: Text(
-                'The CPU is known as the brain of the computer.',
+                '${questionNumber + 1}: ${questions[questionNumber]}',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 25.0),
               ),
@@ -61,8 +91,16 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(8.0),
             child: TextButton(
               onPressed: () {
+                bool correctAnswer = answers[questionNumber];
+
+                if (correctAnswer == true) {
+                  print('right');
+                } else {
+                  print('wrong');
+                }
+
                 setState(() {
-                  scoreKeeper.add(Icon(Icons.done, color: Colors.green));
+                  questionNumber++;
                 });
               },
               style: TextButton.styleFrom(backgroundColor: Colors.green),
@@ -77,7 +115,11 @@ class _QuizPageState extends State<QuizPage> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  questionNumber++;
+                });
+              },
               style: TextButton.styleFrom(backgroundColor: Colors.red),
               child: Text(
                 'False',
