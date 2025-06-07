@@ -35,10 +35,8 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Icon> scoreKeeper = [
-    // Icon(Icons.done, color: Colors.green),
-    // Icon(Icons.clear, color: Colors.red),
-  ];
+  List<Icon> scoreKeeper = [];
+  int questionNumber = 0;
 
   List<Question> questionBank = [
     Question(q: 'The `<script>` tag can only be placed in the `<head>` section of an HTML document.', a: false),
@@ -53,8 +51,6 @@ class _QuizPageState extends State<QuizPage> {
     Question(q: '`innerHTML` and `innerText` are interchangeable and always produce the same output.', a: false),
   ];
 
-  int questionNumber = 0;
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -67,7 +63,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(15.0),
             child: Center(
               child: Text(
-                '${questionNumber + 1}: ${questions[questionNumber]}',
+                '${questionNumber + 1}: ${questionBank[questionNumber].questionText}',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 25.0),
               ),
@@ -79,7 +75,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(8.0),
             child: TextButton(
               onPressed: () {
-                bool correctAnswer = answers[questionNumber];
+                bool correctAnswer = questionBank[questionNumber].questionAnswer;
 
                 if (correctAnswer == true) {
                   print('right');
@@ -104,7 +100,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(8.0),
             child: TextButton(
               onPressed: () {
-                bool correctAnswer = answers[questionNumber];
+                bool correctAnswer = questionBank[questionNumber].questionAnswer;
 
                 if (correctAnswer == false) {
                   print('right');
