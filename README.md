@@ -1,6 +1,6 @@
 # 📱 Quizzy
 
-Quizzy is a simple and interactive Flutter application that presents a 10-question quiz about computer knowledge. Users can answer **True** or **False** to each question and get immediate feedback.
+Quizzy is a simple and interactive Flutter application that presents a 10-question quiz about html and js. Users can answer **True** or **False** to each question and get immediate feedback.
 
 ---
 
@@ -22,15 +22,6 @@ Quizzy is a simple and interactive Flutter application that presents a 10-questi
 
 ---
 
-## 🧠 Questions Example
-
-All questions are about **basic computer knowledge**, such as:
-
-- "The CPU is the brain of the computer." → ✅ True  
-- "RAM stands for Random Access Monitor." → ❌ False
-
----
-
 ## 📚 Code Concepts Used
 
 - **Class & Object**: Each quiz question is modeled using a `Question` class.
@@ -42,11 +33,8 @@ All questions are about **basic computer knowledge**, such as:
 
 ## 📸 Screenshots
 
-### 🏠 Home / Start Screen
-![Start Screen](./screenshots/start_screen.png)
-
 ### ❓ Question Interface
-![Question Screen](./screenshots/question_screen.png)
+<img src="screenshots/Screenshot_1749275127.png" width="240" />
 
 ### ✅ Result Feedback
 ![Result Feedback](./screenshots/result_screen.png)

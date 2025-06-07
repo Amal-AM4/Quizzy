@@ -1,7 +1,10 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'question.dart';
+// import 'question.dart';
+import 'quizbank.dart';
+
+Quizbank quizbank = Quizbank();
 
 void main() {
   runApp(const Quizzy());
@@ -38,18 +41,7 @@ class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
   int questionNumber = 0;
 
-  List<Question> questionBank = [
-    Question(q: 'The `<script>` tag can only be placed in the `<head>` section of an HTML document.', a: false),
-    Question(q: 'JavaScript can be used to change the content of an HTML element.', a: true),
-    Question(q: 'JavaScript can be used to change the CSS styles of an HTML element.', a: true),
-    Question(q: 'To use an external JavaScript file, you use the `<link>` tag.', a: false),
-    Question(q: 'The `onclick` attribute in HTML is an example of an event handler.', a: true),
-    Question(q: 'JavaScript is case-sensitive.', a: true),
-    Question(q: 'Semicolons are always required at the end of every JavaScript statement.', a: false),
-    Question(q: 'HTML5 introduced new APIs that can be accessed with JavaScript, like `localStorage`.', a: true),
-    Question(q: '`document.write()` is the recommended way to add content to a webpage after it has loaded.', a: false),
-    Question(q: '`innerHTML` and `innerText` are interchangeable and always produce the same output.', a: false),
-  ];
+  
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +55,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(15.0),
             child: Center(
               child: Text(
-                '${questionNumber + 1}: ${questionBank[questionNumber].questionText}',
+                '${questionNumber + 1}: ${quizbank.questionBank[questionNumber].questionText}',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 25.0),
               ),
@@ -75,7 +67,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(8.0),
             child: TextButton(
               onPressed: () {
-                bool correctAnswer = questionBank[questionNumber].questionAnswer;
+                bool correctAnswer = quizbank.questionBank[questionNumber].questionAnswer;
 
                 if (correctAnswer == true) {
                   print('right');
@@ -100,7 +92,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(8.0),
             child: TextButton(
               onPressed: () {
-                bool correctAnswer = questionBank[questionNumber].questionAnswer;
+                bool correctAnswer = quizbank.questionBank[questionNumber].questionAnswer;
 
                 if (correctAnswer == false) {
                   print('right');
