@@ -39,9 +39,7 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
-  int questionNumber = 0;
-
-  
+  int slNo = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +53,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(15.0),
             child: Center(
               child: Text(
-                '${questionNumber + 1}: ${quizbank.questionBank[questionNumber].questionText}',
+                '$slNo: ${quizbank.getQuestionText()}',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 25.0),
               ),
@@ -67,7 +65,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(8.0),
             child: TextButton(
               onPressed: () {
-                bool correctAnswer = quizbank.questionBank[questionNumber].questionAnswer;
+                bool correctAnswer = quizbank.getQuestionAnswer();
 
                 if (correctAnswer == true) {
                   print('right');
@@ -76,7 +74,8 @@ class _QuizPageState extends State<QuizPage> {
                 }
 
                 setState(() {
-                  questionNumber++;
+                  slNo++;
+                  quizbank.nextQuestion();
                 });
               },
               style: TextButton.styleFrom(backgroundColor: Colors.green),
@@ -92,7 +91,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(8.0),
             child: TextButton(
               onPressed: () {
-                bool correctAnswer = quizbank.questionBank[questionNumber].questionAnswer;
+                bool correctAnswer = quizbank.getQuestionAnswer();
 
                 if (correctAnswer == false) {
                   print('right');
@@ -100,7 +99,8 @@ class _QuizPageState extends State<QuizPage> {
                   print('wrong');
                 }
                 setState(() {
-                  questionNumber++;
+                  slNo++;
+                  quizbank.nextQuestion();
                 });
               },
               style: TextButton.styleFrom(backgroundColor: Colors.red),
