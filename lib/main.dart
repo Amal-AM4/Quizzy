@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 // import 'question.dart';
 import 'quizbank.dart';
 
@@ -41,6 +42,35 @@ class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
   int slNo = 1;
 
+  void checkAnswer(bool userSelectedAnswer) {
+    bool correctAnswer = quizbank.getQuestionAnswer();
+    setState(() {
+
+      if (quizbank.isFinished() == true) {
+        Alert(
+          context: context,
+          title: 'Finished',
+          desc: 'You are completed the quiz sucessfully',
+        ).show();
+
+        quizbank.reset();
+        scoreKeeper = [];
+        slNo = 1;
+      } else {
+        if (userSelectedAnswer == correctAnswer) {
+                // print('right');
+                scoreKeeper.add(Icon(Icons.done, color: Colors.green,));
+              } else {
+                // print('wrong');
+                scoreKeeper.add(Icon(Icons.close, color: Colors.red,));
+              }
+            
+              slNo++;
+              quizbank.nextQuestion();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -65,18 +95,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(8.0),
             child: TextButton(
               onPressed: () {
-                bool correctAnswer = quizbank.getQuestionAnswer();
-
-                if (correctAnswer == true) {
-                  print('right');
-                } else {
-                  print('wrong');
-                }
-
-                setState(() {
-                  slNo++;
-                  quizbank.nextQuestion();
-                });
+                checkAnswer(true);
               },
               style: TextButton.styleFrom(backgroundColor: Colors.green),
               child: Text(
@@ -91,17 +110,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(8.0),
             child: TextButton(
               onPressed: () {
-                bool correctAnswer = quizbank.getQuestionAnswer();
-
-                if (correctAnswer == false) {
-                  print('right');
-                } else {
-                  print('wrong');
-                }
-                setState(() {
-                  slNo++;
-                  quizbank.nextQuestion();
-                });
+                checkAnswer(false);
               },
               style: TextButton.styleFrom(backgroundColor: Colors.red),
               child: Text(
