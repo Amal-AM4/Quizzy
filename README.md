@@ -35,9 +35,10 @@ Quizzy is a simple and interactive Flutter application that presents a 10-questi
 
 ### ❓ Question Interface
 <img src="screenshots/Screenshot_1749275127.png" width="240" />
+<img src="screenshots/Screenshot_1749471193.png" width="240" />
 
 ### ✅ Result Feedback
-![Result Feedback](./screenshots/result_screen.png)
+<img src="screenshots/Screenshot_1749471197.png" width="240" />
 
 ---
 
